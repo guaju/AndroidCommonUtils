@@ -1,0 +1,30 @@
+  tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tab == null || tab.getText() == null) {
+                    return;
+                }
+                String trim = tab.getText().toString().trim();
+                SpannableString spStr = new SpannableString(trim);
+                StyleSpan styleSpan_B = new StyleSpan(Typeface.BOLD);
+                spStr.setSpan(styleSpan_B, 0, trim.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                tab.setText(spStr);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                if (tab == null || tab.getText() == null) {
+                    return;
+                }
+                String trim = tab.getText().toString().trim();
+                SpannableString spStr = new SpannableString(trim);
+                StyleSpan styleSpan_B = new StyleSpan(Typeface.NORMAL);
+                spStr.setSpan(styleSpan_B, 0, trim.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                tab.setText(spStr);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
